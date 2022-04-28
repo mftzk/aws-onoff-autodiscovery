@@ -1,5 +1,5 @@
 # Addtional Information
-> Add tags on your instances ShutDown: True for autoshutdown, StartUp: True for autostartup
+Add tags on your instances `ShutDown:True` for autoshutdown `StartUp: True` for autostartup
 
 ## Install Dependencies
 ```
