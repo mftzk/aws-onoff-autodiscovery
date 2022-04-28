@@ -66,7 +66,7 @@ class Slack_client(Turner, Main):
                     }
                 ]
 
-        sclient.chat_postMessage(channel='#'+ os.environ['CHANNEL'], blocks=blocks)
+        sclient.chat_postMessage(channel='#'+ os.environ['SLACK_CHANNEL'], blocks=blocks)
 
 if __name__ == '__main__':
     a = Action()
