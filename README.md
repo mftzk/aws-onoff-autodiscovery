@@ -1,4 +1,6 @@
-# Addtional Documentation
+# Addtional Information
+> Add tags on your instances ShutDown: True for autoshutdown, StartUp: True for autostartup
+
 ## Install Dependencies
 ```
 pip install -r requirements.txt
