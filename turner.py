@@ -9,7 +9,7 @@ class Wrapper(object):
         self.tags = tags
         pass
 
-    def filterInstanceIds(self):
+    def filterInstanceIds(self, state):
         response = client.describe_instances(
         Filters=[
             {
@@ -17,6 +17,10 @@ class Wrapper(object):
             'Values': [
                 'True',
             ]
+            },
+            {
+            'Name': 'instance-state-name',
+            'Values': [state]
             }
         ]
         )
@@ -24,8 +28,9 @@ class Wrapper(object):
 
     instance_ids = []
     list_name = []
-    def getInstancesIds(self):
-        response = self.filterInstanceIds()
+    def getInstancesIds(self, state):
+        
+        response = self.filterInstanceIds(state)
         for i in response['Reservations']:
             for j in i['Instances']:
                 self.instance_ids.append(j['InstanceId'])
@@ -37,8 +42,13 @@ class Wrapper(object):
 # class for turn on and off the instance and formatting slack message
 class Turner(Wrapper):
     def __init__(self, tags):
+        if tags == 'StartUp':
+            state = "stopped"
+        elif tags == 'ShutDown':
+            state = "running"
+
         Wrapper.__init__(self, tags)
-        self.getId = self.getInstancesIds()
+        self.getId = self.getInstancesIds(state)
         self.instance_ids = self.getId[0]
         self.list_name = self.getId[1]
     
@@ -65,8 +75,8 @@ class Turner(Wrapper):
                     "type": "plain_text",
                     "text": y,
                     "emoji": True
-            }
-            field.append(z)
+                }
+                field.append(z)
         return field
 
     def turnon(self):
