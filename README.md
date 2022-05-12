@@ -1,6 +1,7 @@
 # Addtional Information
-Add tags on your instances `ShutDown:True` for auto shutdown `StartUp: True` for auto start
-Dont forget to configure your aws cli
+   Add tags on your instances `ShutDown:True` for auto shutdown `StartUp: True` for auto start
+
+   Dont forget to configure your aws cli
 
 ## Install Dependencies
 ```
