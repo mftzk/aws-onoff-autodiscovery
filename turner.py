@@ -62,22 +62,34 @@ class Turner(Wrapper):
         return msg
 
     def formatMsg(self):
+
+        def listToString(s): 
+    
+            # initialize an empty string 
+            string = "" 
+    
+            # traverse in the string 
+            for element in s:
+                string += element + "\n"
+    
+            # return string 
+            return string 
+
         if len(self.list_name) == 0:
-            field = [{
+            z = [{
                 "type": "plain_text",
                 "text": "No instance",
                 "emoji": True
             }]
         else:
-            field = []
-            for y in self.list_name:
-                z = {
+            field = listToString(self.list_name)
+            z = [{
                     "type": "plain_text",
-                    "text": y,
+                    "text": field,
                     "emoji": True
-                }
-                field.append(z)
-        return field
+                }]
+            
+        return z
 
     def turnon(self):
         for a in self.instance_ids:
@@ -94,4 +106,3 @@ class Turner(Wrapper):
                         a
                     ]
                 )
-
