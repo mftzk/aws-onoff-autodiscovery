@@ -8,7 +8,7 @@
 pip install -r requirements.txt
 ```
 
-## Environment Setup
+## Environment Setup for slack notification
 ```
 export SLACK_TOKEN=<your_slack_token>
 export SLACK_CHANNEL=<your_slack_channel>
