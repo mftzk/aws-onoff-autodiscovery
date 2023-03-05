@@ -2,7 +2,6 @@ import boto3
 
 # construction of the client
 client = boto3.client('ec2', region_name='ap-southeast-1')
-
 # class for get the instance id and name
 class Wrapper(object):
     def __init__(self, tags):
