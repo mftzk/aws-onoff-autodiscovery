@@ -21,7 +21,7 @@ class Main():
         elif read == 'down':
             tags = 'ShutDown'
         else:
-            print('Wrong command')
+            print('Wrong command!')
         return tags
 
 # class begining of the action
